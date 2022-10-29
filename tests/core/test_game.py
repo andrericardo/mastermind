@@ -3,7 +3,7 @@ from core.game import get_colors_pegs, new_game
 
 
 def swap_first_and_second_peg(pegs):
-    return pegs[1], pegs[0], *pegs[2:]
+    return (pegs[1], pegs[0], *pegs[2:])
 
 
 class TestGame:
