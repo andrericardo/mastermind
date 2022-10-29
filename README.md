@@ -4,7 +4,7 @@
 
 Run
 
-`export PYTHONPATH=. python3 cli/main.py`
+`export PYTHONPATH=. && python3 cli/main.py`
 
 Example play
 
