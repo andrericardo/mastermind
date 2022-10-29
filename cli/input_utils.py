@@ -3,7 +3,7 @@ from core.constants import ColorPeg
 
 # Assumes color names have unique starting letters
 def letter_to_peg(letter: str):
-    return next(peg for peg in ColorPeg if peg.name[0] == letter)
+    return next(peg for peg in ColorPeg if peg.name[0].lower() == letter.lower())
 
 
 def parse_input_to_pegs(guess_input: str):
