@@ -8,7 +8,7 @@ def test_letter_to_peg():
     assert result == ColorPeg.YELLOW
 
 
-@pytest.mark.parametrize("guess_input", [("R Y M G"), ("R y M g")])
+@pytest.mark.parametrize("guess_input", ["R Y M G", "R y M g"])
 def test_parse_input_to_pegs(guess_input):
     expected = (ColorPeg.RED, ColorPeg.YELLOW, ColorPeg.MAGENTA, ColorPeg.GREEN)
 
