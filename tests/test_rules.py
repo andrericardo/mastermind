@@ -3,7 +3,6 @@ from core.rules import check_guess
 
 
 class TestCheckGuess:
-
     # It would be possible to combine these is_winner tests by using
     # @pytest.mark.parametrize but would make them harder to read
     def test_correct_guess_is_true(self):

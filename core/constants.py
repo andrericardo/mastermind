@@ -1,6 +1,7 @@
-from enum import Enum
+from enum import Enum, unique
 
 
+@unique
 class ColorPeg(Enum):
     RED = 1
     BLUE = 2
@@ -8,3 +9,6 @@ class ColorPeg(Enum):
     GREEN = 4
     MAGENTA = 5
     PURPLE = 6
+
+
+DEFAULT_PEGS_SIZE = 4
