@@ -21,18 +21,6 @@ def ask_guess():
     return parse_input_to_pegs(guess_input)
 
 
-def check_gameover(game):
-    if game.game_over:
-        if game.last_guess.is_winner:
-            print("Congratulations whoo, whoo! You won!")
-        else:
-            print("Too bad, you lost!")
-
-        yes_or_no = input("Play again? [y/N]")
-        if yes_or_no.lower() == "y":
-            game_loop()
-
-
 def game_loop():
     game = new_game(DEFAULT_PEGS_SIZE, DEFAULT_ATTEMPTS)
     pegs_at_play = format_pegs(get_colors_pegs(DEFAULT_PEGS_SIZE))
@@ -51,7 +39,14 @@ def game_loop():
         )
         print(formatted_result)
 
-        check_gameover(game)
+    if game.last_guess.is_winner:
+        print("Congratulations whoo, whoo! You won!")
+    else:
+        print("Too bad, you lost!")
+
+    yes_or_no = input("Play again? [y/N]")
+    if yes_or_no.lower() == "y":
+        game_loop()
 
 
 def main():
