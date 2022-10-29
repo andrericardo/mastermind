@@ -6,6 +6,10 @@ Run
 
 `export PYTHONPATH=. python3 cli/main.py`
 
+Example play
+
+![example play screenshot](docs/example-screenshot.png)
+
 ## How to run the tests
 
 Install the development environment requirements
