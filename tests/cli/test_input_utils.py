@@ -1,4 +1,4 @@
-from cli.input_utils import letter_to_peg, input_parser
+from cli.input_utils import letter_to_peg, parse_input_to_pegs
 from core.constants import ColorPeg
 
 
@@ -7,10 +7,10 @@ def test_letter_to_peg():
     assert result == ColorPeg.YELLOW
 
 
-def test_input_parser():
+def test_parse_input_to_pegs():
     guess_input = "R Y M G"
     expected = (ColorPeg.RED, ColorPeg.YELLOW, ColorPeg.MAGENTA, ColorPeg.GREEN)
 
-    result = input_parser(guess_input)
+    result = parse_input_to_pegs(guess_input)
 
     assert result == expected

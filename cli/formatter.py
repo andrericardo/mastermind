@@ -1,4 +1,5 @@
 from core.constants import ColorPeg
+from core.rules import GuessResult
 
 
 class bcolors:
@@ -10,6 +11,9 @@ class bcolors:
     MAGENTA = "\033[95m"
     PURPLE = "\033[35m"
 
+    RIGHT_POSITION = "\033[41m"
+    WRONG_POSITION = "\033[100m"
+
     ENDC = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
@@ -20,22 +24,10 @@ PEG_COLOR = {
     ColorPeg.RED: bcolors.RED,
     ColorPeg.BLUE: bcolors.BLUE,
     ColorPeg.YELLOW: bcolors.YELLOW,
-    ColorPeg.GREEN: bcolors.MAGENTA,
+    ColorPeg.GREEN: bcolors.GREEN,
     ColorPeg.MAGENTA: bcolors.MAGENTA,
     ColorPeg.PURPLE: bcolors.PURPLE,
 }
-
-
-def color_print(color):
-    def wrapper(func):
-        def wrapper_decorator(message):
-            message = f"{color}{message}{bcolors.ENDC}"
-            value = func(message)
-            return value
-
-        return wrapper_decorator
-
-    return wrapper
 
 
 def wrap_color(color):
@@ -50,27 +42,35 @@ def wrap_color(color):
     return wrapper
 
 
-@color_print(bcolors.BOLD)
-@color_print(bcolors.RED)
-@color_print(bcolors.UNDERLINE)
-def print_title(message):
-    print(message)
-
-
-def print_text(message):
-    print(message)
-
-
-def print_pegs(pegs):
-    print(format_pegs(pegs))
+@wrap_color(bcolors.BOLD)
+@wrap_color(bcolors.RED)
+@wrap_color(bcolors.UNDERLINE)
+def format_title(message):
+    return message
 
 
 @wrap_color(bcolors.BACKGROUND)
 def format_peg(peg: ColorPeg):
     letter = peg.name[0]
     color = PEG_COLOR[peg]
-    return f"{color}{letter} {bcolors.ENDC}"
+    return f"{color} {letter} {bcolors.ENDC}"
 
 
 def format_pegs(pegs):
     return "".join([format_peg(p) for p in pegs])
+
+
+@wrap_color(bcolors.BACKGROUND)
+@wrap_color(bcolors.RIGHT_POSITION)
+def right(message):
+    return f"Right position: {message}"
+
+
+@wrap_color(bcolors.BACKGROUND)
+@wrap_color(bcolors.WRONG_POSITION)
+def wrong(message):
+    return f"Wrong position: {message}"
+
+
+def format_result(result: GuessResult):
+    return f" -> {right(result.right_position)} {wrong(result.wrong_position)}"

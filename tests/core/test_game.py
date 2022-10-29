@@ -26,6 +26,7 @@ class TestGame:
 
         assert game.attempts_left == DEFAULT_ATTEMPTS - 1
         assert result.last_guess.is_winner
+        assert game.game_over
 
     def test_incorrect_guess(self):
         game = new_game(DEFAULT_PEGS_SIZE, DEFAULT_ATTEMPTS)

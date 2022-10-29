@@ -1,14 +1,14 @@
 from dataclasses import dataclass
 import random
 from core.constants import ColorPeg
-from core.rules import check_guess
+from core.rules import GuessResult, check_guess
 
 
 @dataclass
 class Game:
     solution: tuple
     attempts_left: int
-    last_guess: tuple = None
+    last_guess: GuessResult = None
     game_over: bool = False
 
     def guess(self, guessed_pegs):
@@ -16,7 +16,10 @@ class Game:
             self.attempts_left -= 1
             self.last_guess = check_guess(self.solution, guessed_pegs)
 
-        if not self.last_guess.is_winner and self.attempts_left == 0:
+        if self.last_guess.is_winner:
+            self.game_over = True
+
+        if self.attempts_left == 0:
             self.game_over = True
 
         return self
