@@ -9,9 +9,7 @@ from core.rules import GuessResult
 
 def test_format_peg():
     result = format_peg(ColorPeg.YELLOW)
-    assert (
-        result == f"{Colors.BACKGROUND}{Colors.YELLOW} Y {Colors.ENDC}{Colors.ENDC}"
-    )
+    assert result == f"{Colors.BACKGROUND}{Colors.YELLOW} Y {Colors.ENDC}{Colors.ENDC}"
 
 
 def test_format_result():
