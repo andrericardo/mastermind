@@ -2,7 +2,9 @@
 
 ## How to run
 
-TODO
+Run
+
+`export PYTHONPATH=. python3 cli/main.py`
 
 ## How to run the tests
 

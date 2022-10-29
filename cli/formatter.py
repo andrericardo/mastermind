@@ -74,3 +74,7 @@ def wrong(message):
 
 def format_result(result: GuessResult):
     return f" -> {right(result.right_position)} {wrong(result.wrong_position)}"
+
+
+def format_attempts(attempts_left):
+    return f"Attempts left: {attempts_left}"
