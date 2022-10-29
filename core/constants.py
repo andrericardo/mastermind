@@ -12,3 +12,5 @@ class ColorPeg(Enum):
 
 
 DEFAULT_PEGS_SIZE = 4
+
+DEFAULT_ATTEMPTS = 10
