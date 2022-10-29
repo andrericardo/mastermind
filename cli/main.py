@@ -26,9 +26,6 @@ def game_loop():
     pegs_at_play = format_pegs(get_colors_pegs(DEFAULT_PEGS_SIZE))
     print(f"Pegs at play: {pegs_at_play}")
 
-    if True:
-        print(format_pegs(game.solution))
-
     while not game.game_over:
         user_guess = ask_guess()
         if len(user_guess) < DEFAULT_PEGS_SIZE:
